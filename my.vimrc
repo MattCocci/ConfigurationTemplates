@@ -1,47 +1,103 @@
 " Matt Cocci's .vimrc file 
-"
 
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" To use, copy to
+"     for Unix:  ~/.vimrc
+"     for MS-DOS and Win32:  $VIM\_vimrc
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+
+
+"===================================================================
+"================ PATHOGEN =========================================
+"===================================================================
+
+" execute pathogen#infect()
+" execute pathogen#helptags()
+
+
+"===================================================================
+"================ GENERAL ==========================================
+"===================================================================
+
+
+set nocompatible	      " Use Vim settings, rather than Vi 
+				 					" settings (much better!). This must 
+				 					" be first, because it changes other 
+				 					" options as a side effect.
+syntax on					" Allows syntax highlighting
+filetype plugin on		" allows plugins & indenting to run 
+filetype indent on 
+set hlsearch
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+set wrapscan		" sets the search scan to wrap around the file
+set scrolloff=8		"When the page begins to scroll, keep a buffer 
+			   " beween the cursor and the top or botton of 
+			   " the page
+set shiftwidth=3	"Changes the size of the tab
+set softtabstop=3
+set mouse=a		" Enable the mouse
+set number		" Put line numbers
+set nowrap		" Don't wrap lines
+set ignorecase		" Ignore case in the search string
+set smartcase		" UNLESS there are capitals in search string
+set noswapfile		" So I'm not bothered by annoying ass swap files 
+			   "  and recovery prompts every time I try to use 
+			   "  gvim for latex
+set t_Co=256		" Expands the color set and makes gvim and 
+			   " vim look better
+if has('gui_running')
+   set background=dark
+ else 
+   set background=dark
 endif
+let g:solarized_termcolors=256
+colorscheme solarized	" Colorscheme for GVIM
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
+"===================================================================
+"================ OTHER SETTINGS ===================================
+"===================================================================
+
+
+
+
+" How to handle BACKUP FILES
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
 
-" sets the search scan to wrap around the file
-set wrapscan 
 
-"When the page begins to scroll, keep a buffer beween the cursor and the top
-"or botton of the page
-set scrolloff=8
+" Spellchecking enabled, but not by default
+if version >= 700
+	set spl=en spell
+	set nospell
+endif
 
-"Changes the size of the tab
-set shiftwidth=3
-set softtabstop=3
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+
+" Sets the default filetypes and formats for gvim and latex-suite
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats='pdf, aux'
+
+
+
+"=================================================================
+"=========== REMAPS ==============================================
+"=================================================================
+
+"Remap jj to escape insert mode
+inoremap jj <Esc>
+nnoremap JJJJ <Nop>
+
+"Remap 0 to ^, the first character of the line
+nnoremap 0 ^
+nnoremap ^ 0 
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -50,20 +106,30 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+"<Ctrl-l> Redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" Expands the color set and makes gvim and vim look better
-set t_Co=256
+" This allows for easier copying to the clipboard by hitting \y
+   " while \yy will yank an entire line
+noremap <leader>y "+y
+noremap <leader>yy "+Y
+
+" This allows for easier pasting from the clipboard by hitting \p
+   " also preserves indentation
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+
+
+"=================================================================
+"=========== OTHER STUFF I DON'T REALLY USE/KNOW =================
+"=================================================================
+
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -107,48 +173,4 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-
-"Spellchecking enabled, but not by default
-if version >= 700
-	set spl=en spell
-	set nospell
-endif
-
-"Put line numbers
-set number
-
-"Remap jj to escape insert mode
-inoremap jj <Esc>
-
-nnoremap JJJJ <Nop>
-
-"Remap 0 to ^, the first character of the line
-nnoremap 0 ^
-nnoremap ^ 0 
-
-"<Ctrl-l> Redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-" Enables autocomplete for brackets
-"  inoremap {      {}<Left>
-"  inoremap {<CR>  {<CR>}<Esc>O
-"  inoremap {{     {
-"  inoremap {}     {}
-
-" Allows vim to use latex-suite and other plugins when opening up
-filetype plugin on
-
-" Something about auto-indenting
-filetype indent on
-
-" Sets the default filetypes and formats for gvim and latex-suite
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats='pdf, aux'
-
-" Sets the colorscheme I want for gvim
-colorscheme dante
-
-" So I'm not bothered by annoying ass swap files and recovery prompts
-" every time I try to use gvim for latex
-set noswapfile
 
