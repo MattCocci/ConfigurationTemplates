@@ -28,7 +28,8 @@ filetype plugin on		" allows plugins & indenting to run
 filetype indent on 
 set hlsearch
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=50		" keep 50 lines of command line history
+set history=500		" keep 50 lines of command line history
+set undolevels=500	" Allow lots of undoing
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
@@ -36,16 +37,20 @@ set wrapscan		" sets the search scan to wrap around the file
 set scrolloff=8		"When the page begins to scroll, keep a buffer 
 			   " beween the cursor and the top or botton of 
 			   " the page
-set shiftwidth=3	"Changes the size of the tab
-set softtabstop=3
+set shiftwidth=4	"Changes the size of the tab
+set softtabstop=4
+set autoindent 
 set mouse=a		" Enable the mouse
 set number		" Put line numbers
 set nowrap		" Don't wrap lines
 set ignorecase		" Ignore case in the search string
 set smartcase		" UNLESS there are capitals in search string
+set nobackup		" No more backup files
 set noswapfile		" So I'm not bothered by annoying ass swap files 
 			   "  and recovery prompts every time I try to use 
 			   "  gvim for latex
+set visualbell		" No beeping/sound
+set noerrorbells	" No beeping/sound
 set t_Co=256		" Expands the color set and makes gvim and 
 			   " vim look better
 if has('gui_running')
@@ -116,9 +121,15 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 noremap <leader>y "+y
 noremap <leader>yy "+Y
 
+
 " This allows for easier pasting from the clipboard by hitting \p
    " also preserves indentation
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
+" But because pasting can get weird with autoindenting, you add
+" this way to switch to past mode so things don't get autoindented
+" and screwed up
+set pastetoggle=<F2>
 
 
 " Allow for toggling between color schemes for solarized
