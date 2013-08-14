@@ -120,6 +120,10 @@ noremap <leader>yy "+Y
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 
+" Allow for toggling between color schemes for solarized
+map <F5> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+
 
 "=================================================================
 "=========== OTHER STUFF I DON'T REALLY USE/KNOW =================
