@@ -55,6 +55,7 @@ if has('gui_running')
 endif
 let g:solarized_termcolors=256
 colorscheme solarized	" Colorscheme for GVIM
+let mapleader=','	" Makes the leader character , instead of \
 
 
 
@@ -95,7 +96,7 @@ let g:Tex_MultipleCompileFormats='pdf, aux'
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
 
-"Remap 0 to ^, the first character of the line
+" Swap 0 to ^, and vice versa the first character of the line
 nnoremap 0 ^
 nnoremap ^ 0 
 
