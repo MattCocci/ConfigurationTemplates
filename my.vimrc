@@ -45,7 +45,6 @@ set number		" Put line numbers
 set nowrap		" Don't wrap lines
 set ignorecase		" Ignore case in the search string
 set smartcase		" UNLESS there are capitals in search string
-set nobackup		" No more backup files
 set noswapfile		" So I'm not bothered by annoying ass swap files 
 			   "  and recovery prompts every time I try to use 
 			   "  gvim for latex
@@ -63,6 +62,9 @@ colorscheme solarized	" Colorscheme for GVIM
 let mapleader=','	" Makes the leader character , instead of \
 
 
+" Save all backup files with ~ suffix to a central file that's
+"   out of view, but there just in case
+set backupdir=~/.vimbackups,.
 
 "===================================================================
 "================ OTHER SETTINGS ===================================
@@ -133,8 +135,9 @@ set pastetoggle=<F2>
 
 
 " Allow for toggling between color schemes for solarized
-map <F5> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+
 
 
 "=================================================================
@@ -189,4 +192,5 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+filetype plugin on
 
