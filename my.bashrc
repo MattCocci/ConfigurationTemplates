@@ -115,7 +115,6 @@ fi
 
 
 
-
 ###########################################################
 ### MY ADDITIONS ##########################################
 ###########################################################
@@ -124,4 +123,12 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias dropbox='cd ~/Dropbox'
 
+# Okay, so tmux wants TERM="screen-256color",
+    # which is what is in the .tmux.conf file too.
+    # BUT, if you set this straight away, 
+    # vim gets messed up with the encoding and
+    # the characters.
+    # SO, this sets the terminal colors correctly
+    # before you open tmux
+alias tmux='export TERM="screen-256color"; tmux'
 

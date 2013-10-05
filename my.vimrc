@@ -23,6 +23,7 @@ set nocompatible	      " Use Vim settings, rather than Vi
 				 					" settings (much better!). This must 
 				 					" be first, because it changes other 
 				 					" options as a side effect.
+								
 syntax on					" Allows syntax highlighting
 filetype plugin on		" allows plugins & indenting to run 
 filetype indent on 
@@ -52,12 +53,8 @@ set visualbell		" No beeping/sound
 set noerrorbells	" No beeping/sound
 set t_Co=256		" Expands the color set and makes gvim and 
 			   " vim look better
-if has('gui_running')
-   set background=dark
- else 
-   set background=dark
-endif
-let g:solarized_termcolors=256
+set background=dark
+"let g:solarized_termcolors=256
 colorscheme solarized	" Colorscheme for GVIM
 let mapleader=','	" Makes the leader character , instead of \
 
@@ -70,15 +67,6 @@ set backupdir=~/.vimbackups,.
 "================ OTHER SETTINGS ===================================
 "===================================================================
 
-
-
-
-" How to handle BACKUP FILES
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
 
 
 " Spellchecking enabled, but not by default
@@ -193,4 +181,5 @@ if !exists(":DiffOrig")
 endif
 
 filetype plugin on
+
 
