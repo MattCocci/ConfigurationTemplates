@@ -43,13 +43,16 @@ set softtabstop=4
 set autoindent 
 set mouse=a		" Enable the mouse
 set number		" Put line numbers
-set nowrap		" Don't wrap lines
+"set nowrap		" Don't wrap lines
+set linebreak		" Don't break midword when wrapping lines
 set ignorecase		" Ignore case in the search string
 set smartcase		" UNLESS there are capitals in search string
 set noswapfile		" So I'm not bothered by annoying ass swap files 
 			   "  and recovery prompts every time I try to use 
 			   "  gvim for latex
 set visualbell		" No beeping/sound
+set splitbelow		" New splits below current window
+set splitright		" New splits to the right
 set noerrorbells	" No beeping/sound
 set t_Co=256		" Expands the color set and makes gvim and 
 			   " vim look better
@@ -62,6 +65,7 @@ let mapleader=','	" Makes the leader character , instead of \
 " Save all backup files with ~ suffix to a central file that's
 "   out of view, but there just in case
 set backupdir=~/.vimbackups,.
+
 
 "===================================================================
 "================ OTHER SETTINGS ===================================
@@ -127,6 +131,9 @@ map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme sol
 map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 
 
+" All for jumping by display lines, not just physical lines
+nnoremap j gj
+nnoremap k gk
 
 "=================================================================
 "=========== OTHER STUFF I DON'T REALLY USE/KNOW =================
