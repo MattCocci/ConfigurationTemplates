@@ -12,9 +12,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext}
 \usepackage{graphicx}
-\usepackage[hidelinks]{hyperref} % For internal/external linking. 
-				 % [hidelinks] removes boxes
-% \usepackage{url} % allows for url display, non-clickable
+\usepackage{hyperref} 
+\hypersetup{	
+    colorlinks,		% This colors the links themselves, not boxes
+    citecolor=black,	% Everything below changes the link colors
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 %\numberwithin{equation}{section} 
    % This labels the equations in relation to the sections 
       % rather than other equations
