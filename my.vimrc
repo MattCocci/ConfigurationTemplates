@@ -67,6 +67,11 @@ let mapleader=','	" Makes the leader character , instead of \
 set backupdir=~/.vimbackups,.
 
 
+" Sets folding for indendented blocks for use with python
+set foldmethod=indent
+set foldlevel=99
+
+
 "===================================================================
 "================ OTHER SETTINGS ===================================
 "===================================================================
@@ -85,6 +90,15 @@ endif
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
+witch easily between relative and absolute line numbering
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <leader># :call NumberToggle()<cr>
 
 
 "=================================================================
