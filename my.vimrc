@@ -26,7 +26,6 @@ set nocompatible	      " Use Vim settings, rather than Vi
 								
 syntax on					" Allows syntax highlighting
 filetype plugin on		" allows plugins & indenting to run 
-filetype indent on 
 set hlsearch
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 50 lines of command line history
@@ -38,9 +37,14 @@ set wrapscan		" sets the search scan to wrap around the file
 set scrolloff=8		"When the page begins to scroll, keep a buffer 
 			   " beween the cursor and the top or botton of 
 			   " the page
+
 set shiftwidth=4	"Changes the size of the tab
 set softtabstop=4
 set autoindent 
+filetype indent on 
+set tabstop=4
+set expandtab
+set shiftround
 set mouse=a		" Enable the mouse
 set number		" Put line numbers
 "set nowrap		" Don't wrap lines
