@@ -3,56 +3,94 @@
 \author{Matthew Cocci}
 \title{Title}
 \date{\today}
+
+%% Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{fullpage}
-\usepackage{enumitem} %Has to do with enumeration	
-\usepackage{amsfonts}
+\usepackage{setspace}
+%\onehalfspacing
+
+
+%% Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pagestyle{fancy} 
+%\lhead{}
+%\rhead{}
+%\chead{}
+%\setlength{\headheight}{15.2pt} 
+    %---Make the header bigger to avoid overlap
+
+%\renewcommand{\headrulewidth}{0.3pt} 
+    %---Width of the line
+
+%\setlength{\headsep}{0.2in}    
+    %---Distance from line to text
+            
+
+%% Mathematics Related %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{amsthm} %allows for labeling of theorems
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{blindtext}
-\usepackage{graphicx}
-\usepackage{hyperref} 
-\hypersetup{	
-    colorlinks,		% This colors the links themselves, not boxes
-    citecolor=black,	% Everything below changes the link colors
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-%\numberwithin{equation}{section} 
-   % This labels the equations in relation to the sections 
-      % rather than other equations
-%\numberwithin{equation}{subsection} %This labels relative to subsections
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
-%\setkomafont{disposition}{\normalfont\bfseries}
+%\numberwithin{equation}{section} 
+    %---This labels the equations in relation to the sections 
+    %---rather than other equations
+%\numberwithin{equation}{subsection} 
+    %---This labels relative to subsections
+
+
+%% Font Choices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{blindtext}
+
+
+%% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{subfigure} 
+    %---For plotting multiple figures at once
+
+
+%% Hyperlinks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref} 
+\hypersetup{	
+    colorlinks,		
+        %---This colors the links themselves, not boxes
+    citecolor=black,	
+        %---Everything here and below changes link colors
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+
+%% Various %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\usepackage{enumitem} 
+    %---Has to do with enumeration	
 \usepackage{appendix}
-\usepackage{subfigure} % For plotting multiple figures at once
-\usepackage{verbatim} % for including verbatim code from a file
-%\usepackage{natbib} % for bibliographies
+\usepackage{verbatim} 
+    %---For including verbatim code from a file
+%\usepackage{natbib} 
+    %---For bibliographies
 
 
-%\pagestyle{fancy}
-%\lhead{}
-%\rhead{}
-%\chead{}
-%\setlength{\headheight}{15.2pt} % Make the header bigger to avoid overlap
-%\renewcommand{\headrulewidth}{0.3pt} % Width of the line
-%\setlength{\headsep}{0.2in}         % Distance from line to text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-%\usepackage{setspace}
-%\onehalfspacing
 
 \begin{document}
 \maketitle
 
-\tableofcontents %adds it here
+%\tableofcontents 
 
 
-%%%% APPPENDIX %%%%%%%%%%%
+%%%% APPPENDIX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \appendix
 
@@ -91,5 +129,7 @@
  
 
 %%%%% Including Code %%%%%%%%%%%%%%%%%%%%%5
-% \verbatiminput{file.ext}    % Includes verbatim text from the file
-% \texttt{text}	  % includes text in courier, or code-like, font
+% \verbatiminput{file.ext}    
+    %---Includes verbatim text from the file
+% \texttt{text}	  
+    %---Renders text in courier, or code-like, font
