@@ -96,11 +96,11 @@ let g:Tex_MultipleCompileFormats='pdf, aux'
 
 witch easily between relative and absolute line numbering
 function! NumberToggle()
-    if(&relativenumber == 1)
-        set number
-    else
-        set relativenumber
-    endif
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
 endfunc
 nnoremap <leader># :call NumberToggle()<cr>
 
