@@ -55,6 +55,8 @@
 \usepackage{graphicx}
 \usepackage{subfigure} 
     %---For plotting multiple figures at once
+%\graphicspath{ {Directory/} }
+    %---Set a directory for where to look for figures
 
 
 %% Hyperlinks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -81,6 +83,12 @@
     %---For bibliographies
 
 
+%% User Defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%\newcommand{\nameofcmd}{Text to display}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
@@ -105,30 +113,44 @@
 
 \end{document}
 
+%%%% SPACING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\vspace{1in}
+%\hspace{1in}
 
 
 %%%% INCLUDING FIGURES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-   % H indicates here 
-   %\begin{figure}[h!]
-   %   \centering
-   %   \includegraphics[scale=1]{file.pdf}
-   %\end{figure}
+% Basic Figure with scaling
+    %\begin{figure}[h!]
+    %   \centering
+    %   \includegraphics[scale=1]{file.pdf}
+    %   \includegraphics[height=5in, width=5in]{file.pdf}
+    %\end{figure}
 
-%   \begin{figure}[h!]
-%      \centering
-%      \mbox{
-%	 \subfigure{
-%	    \includegraphics[scale=1]{file1.pdf}
-%	 }\quad
-%	 \subfigure{
-%	    \includegraphics[scale=1]{file2.pdf} 
-%	 }
-%      }
-%   \end{figure}
+
+% Basic Figure with cropping, where the order is  L, B, R, T
+    %\begin{figure}
+    %   \centering
+    %   \includegraphics[trim={1cm, 1cm, 1cm, 1cm}, clip]{file.pdf}
+    %\end{figure}
+
+
+% Side by Side figures
+    %\begin{figure}[h!]
+    %   \centering
+    %   \mbox{
+    % \subfigure{
+    %    \includegraphics[scale=1]{file1.pdf}
+    % }\quad
+    % \subfigure{
+    %    \includegraphics[scale=1]{file2.pdf} 
+    % }
+    %   }
+    %\end{figure}
  
 
-%%%%% Including Code %%%%%%%%%%%%%%%%%%%%%5
+%%%%% Including Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \verbatiminput{file.ext}    
     %---Includes verbatim text from the file
 % \texttt{text}	  
