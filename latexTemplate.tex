@@ -71,14 +71,47 @@
     urlcolor=black
 }
 
+%% Including Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-%% Various %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage{verbatim} 
+    %---For including verbatim code from files, no colors
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+\newcommand{\matlabcode}[1]{%
+    \lstset{language=Matlab,%
+        basicstyle=\footnotesize,%
+        breaklines=true,%
+        morekeywords={matlab2tikz},%
+        keywordstyle=\color{blue},%
+        morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},%
+        identifierstyle=\color{black},%
+        stringstyle=\color{mylilas},%
+        commentstyle=\color{mygreen},%
+        showstringspaces=false,%
+            %---Without this there will be a symbol in 
+            %---the places where there is a space
+        numbers=left,%
+        numberstyle={\tiny \color{black}},% 
+            %---Size of the numbers
+        numbersep=9pt,% 
+            %---Defines how far the numbers are from the text
+        emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{red},%
+            %---Some words to emphasise
+    }%
+    \lstinputlisting{#1}
+}
+    %---For including Matlab code from .m file with colors,
+    %---line numbering, etc. 
+
+
+%% Misc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \usepackage{enumitem} 
     %---Has to do with enumeration	
 \usepackage{appendix}
-\usepackage{verbatim} 
-    %---For including verbatim code from a file
 %\usepackage{natbib} 
     %---For bibliographies
 \usepackage{pdfpages}
@@ -91,7 +124,9 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
 \begin{document}
@@ -100,63 +135,84 @@
 %\tableofcontents 
 
 
-%%%% APPPENDIX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% APPPENDIX %%
 
 % \appendix
-
-%\cite{LabelInSourcesFile} 
-%\citep{LabelInSourcesFile} Cites in parens
-%\nocite{LabelInSourceFile} includes in refs w/o specific citation
-%\bibliographystyle{apalike} 
-%\bibliography{sources.bib} where sources.bib is file
 
 
 
 
 \end{document}
 
-%%%% SPACING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\vspace{1in}
-%\hspace{1in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-%%%% INCLUDING PDF PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SAMPLE CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\includepdf{file.pdf}
+    %% BIBLIOGRAPHIES %%
 
-%%%% INCLUDING FIGURES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \cite{LabelInSourcesFile} 
+        \citep{LabelInSourcesFile} Cites in parens
+        \nocite{LabelInSourceFile} includes in refs w/o specific citation
+        \bibliographystyle{apalike} 
+        \bibliography{sources.bib} where sources.bib is file
 
-% Basic Figure with scaling
-    %\begin{figure}[h!]
-    %   \centering
-    %   \includegraphics[scale=1]{file.pdf}
-    %   \includegraphics[height=5in, width=5in]{file.pdf}
-    %\end{figure}
+    %% SPACING %%
 
-
-% Basic Figure with cropping, where the order is  L, B, R, T
-    %\begin{figure}
-    %   \centering
-    %   \includegraphics[trim={1cm, 1cm, 1cm, 1cm}, clip]{file.pdf}
-    %\end{figure}
+        \vspace{1in}
+        \hspace{1in}
 
 
-% Side by Side figures
-    %\begin{figure}[h!]
-    %   \centering
-    %   \mbox{
-    % \subfigure{
-    %    \includegraphics[scale=1]{file1.pdf}
-    % }\quad
-    % \subfigure{
-    %    \includegraphics[scale=1]{file2.pdf} 
-    % }
-    %   }
-    %\end{figure}
- 
+    %% INCLUDING PDF PAGE %%
 
-%%%%% Including Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \verbatiminput{file.ext}    
-    %---Includes verbatim text from the file
-% \texttt{text}	  
-    %---Renders text in courier, or code-like, font
+        \includepdf{file.pdf}
+
+
+    %% INCLUDING CODE %%
+
+        \verbatiminput{file.ext}    
+            %---Includes verbatim text from the file
+        \texttt{text}	  
+            %---Renders text in courier, or code-like, font
+
+        \matlabcode{file.m}	  
+            %---Includes Matlab code with colors and line numbers
+
+
+    %% INCLUDING FIGURES %%
+
+        % Basic Figure with size scaling
+            \begin{figure}[h!]
+               \centering
+               \includegraphics[scale=1]{file.pdf}
+            \end{figure}
+
+        % Basic Figure with specific height
+            \begin{figure}[h!]
+               \centering
+               \includegraphics[height=5in, width=5in]{file.pdf}
+            \end{figure}
+
+        % Figure with cropping, where the order for trimming is  L, B, R, T
+            \begin{figure}
+               \centering
+               \includegraphics[trim={1cm, 1cm, 1cm, 1cm}, clip]{file.pdf}
+            \end{figure}
+
+
+        % Side by Side figures
+            \begin{figure}[h!]
+                \centering
+                \mbox{\subfigure{
+                    \includegraphics[scale=1]{file1.pdf}
+                }\quad\subfigure{
+                    \includegraphics[scale=1]{file2.pdf} 
+                }
+                }
+            \end{figure}
+    
+
