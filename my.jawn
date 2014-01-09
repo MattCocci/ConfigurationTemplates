@@ -1,0 +1,12 @@
+pdf=evince
+eps=evince
+txt=vim
+sh=vim
+tex=vim
+md=vim
+doc=openoffice.org
+docx=openoffice.org
+do=vim
+m=vim
+py=vim
+c=vim
