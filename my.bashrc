@@ -135,4 +135,6 @@ alias tmux='export TERM="screen-256color"; tmux'
 # Better log viewing in Git, from Henry
 alias githist='git log --graph --all --full-history --color --format=oneline --branches --abbrev-commit'
 
+# Easier scrolling for very large directories
+alias lss='ls | less'
 
