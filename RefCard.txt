@@ -1,0 +1,57 @@
+TMUX
+=====
+
+My Leader (^): Ctrl + a
+
+New Session     tmux
+Detach          
+
+VIM
+====
+
+Text Manipulation
+------------------
+I       Insert before first non-blank on line
+gI      Insert column 1
+D       Delete chars from cursor to $
+R       Enter replace mode
+di'     Delete within ('); works for {}, (), ""
+
+
+Folding
+--------------------------
+<L>za   Open/close fold      
+<L>zA   Open close ALL folds
+
+
+File Interaction, Vim Use
+--------------------------
+:e          Edit cur file; reload if chgd outside vim
+gf          Open to file under cursor
+:r file     Insert contents of "file" here
+:reg        Show registers
+
+
+Navigation
+--------------
+H,M,L       Jump to High, Middle, Low of page
+g0          To 1st non-blank on vis line when wrapping
+g$          To last non-blank on vis line when wrapping
+f{char}     Go to 1st instance of {char} after cursor
+t{char}     Go 1 before 1st instance of {char} after cursor
+m{char}     Set mark at cursor with id {char}
+`{char}     Go to mark with id {char}
+
+
+Plugins
+-------
+<L>cc       Comment out
+<L>cu       Uncomment
+<L>ci       Toggle individual line comments
+<L>cA       Add comment single and enter insert mode
+<L><L>w     Call easy-motion
+
+.vimrc
+
+
+

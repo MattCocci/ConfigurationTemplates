@@ -74,6 +74,8 @@ set backupdir=~/.vimbackups,.
 " Sets folding for indendented blocks for use with python
 set foldmethod=indent
 set foldlevel=99
+set tw=80           " Set width of text to 80
+set hidden          " allow hidden buffers
 
 
 "===================================================================
