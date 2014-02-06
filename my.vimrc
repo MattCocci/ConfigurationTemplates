@@ -154,6 +154,9 @@ map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme sola
 " All for jumping by display lines, not just physical lines
 nnoremap j gj
 nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+
 
 "=================================================================
 "=========== OTHER STUFF I DON'T REALLY USE/KNOW =================

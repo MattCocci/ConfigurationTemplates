@@ -138,3 +138,5 @@ alias githist='git log --graph --all --full-history --color --format=oneline --b
 # Easier scrolling for very large directories
 alias lss='ls | less'
 
+# Turn control the eff off
+stty -ixon

@@ -71,6 +71,12 @@ Folding
 <L>zA   Open close ALL folds
 
 
+Buffers
+--------
+:ls     List buffers
+
+
+
 File Interaction, Vim Use
 --------------------------
 :e          Edit cur file; reload if chgd outside vim
@@ -90,15 +96,19 @@ m{char}     Set mark at cursor with id {char}
 `{char}     Go to mark with id {char}
 
 
-Plugins
--------
+Nerdcommenter
+--------------
 <L>cc       Comment out
 <L>cu       Uncomment
 <L>ci       Toggle individual line comments
 <L>cA       Add comment single and enter insert mode
-<L><L>w     Call easy-motion
 
-.vimrc
+Misc
+-----
+<L><L>w     Call easy-motion
+:Tab /X     Align on character X
+
+
 
 
 

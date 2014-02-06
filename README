@@ -8,9 +8,11 @@ vim
         http://tex.stackexchange.com/questions/112698/how-to-install-vim-latex
     vim-latex
     NERD_commenter
+    NERD_tree
     vim-easymotion
     Gundo (with nnoremap <Leader>u :GundoToggle<CR>)
-        snippets
+    snippets
+    Tabular for easy aligning
         Syntastic
 
 R
