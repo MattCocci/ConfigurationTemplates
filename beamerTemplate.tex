@@ -8,6 +8,11 @@
 \usetheme{Boadilla}
 %\usetheme{Frankfurt}
 
+% Set up the colors to use with "alerted" text
+% --> See the slide "Highlighting Certain Points?" 
+\setbeamercolor{dull text}{fg=gray, bg=}
+\setbeamercolor{alerted text}{fg=black, bg=}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fixup Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,6 +113,32 @@
 	}
 
 
+	\frame{
+	    \frametitle{Adding Some Color}
+
+        Maybe you want to highlight some text and really make it
+        \textcolor{red}{stand out}.
+	}
+
+	\frame{
+	    \frametitle{Highlighting Certain Points}
+
+        Or maybe, you want to gray out certain text to highlight other
+        points. 
+        \usebeamercolor{dull text}
+        \begin{itemize}
+            \item \alert<+>{You do that by defining the color of ``dull''
+                text and ``alerted'' text in the preamble}
+            \item \alert<+>{Then you set the color to dull text, adding
+                ``\textbackslash alert\textless\texttt{+}\textgreater'' 
+                tags and enclosing within brackets
+                the text to be ``alert.''}
+        \end{itemize}
+        \pause
+        Each ``\textbackslash alert\textless\texttt{+}\textgreater\{text\}'' 
+        also adds pauses between the dull and alert
+        text.
+	}
 
 
 \end{document}
