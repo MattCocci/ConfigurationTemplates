@@ -32,16 +32,21 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{mathrsfs}
 \usepackage{amsthm} %allows for labeling of theorems
+\theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
-%\numberwithin{equation}{section} 
-    %---This labels the equations in relation to the sections 
-    %---rather than other equations
-%\numberwithin{equation}{subsection} 
-    %---This labels relative to subsections
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
 
 
 %% Font Choices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
