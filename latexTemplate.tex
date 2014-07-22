@@ -48,6 +48,14 @@
 \newtheorem*{rem}{Remark}
 \newtheorem*{note}{Note}
 
+% Below supports left-right alignment in matrices so the negative
+% signs don't look bad
+\makeatletter
+\renewcommand*\env@matrix[1][c]{\hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols #1}}
+\makeatother
+
 
 %% Font Choices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
