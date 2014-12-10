@@ -34,15 +34,16 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set wrapscan		" sets the search scan to wrap around the file
-set scrolloff=8		"When the page begins to scroll, keep a buffer 
+set scrolloff=2		"When the page begins to scroll, keep a buffer 
 			   " beween the cursor and the top or botton of 
 			   " the page
 
-set shiftwidth=4	"Changes the size of the tab
-set softtabstop=4
+set shiftwidth=2	"Changes the size of the tab
+set softtabstop=2
+autocmd FileType make setlocal noexpandtab " Don't make tabs spaces if writing a Makefile
 set autoindent 
 filetype indent on 
-set tabstop=4
+set tabstop=2
 set expandtab
 set shiftround
 set mouse=a		" Enable the mouse
@@ -74,8 +75,12 @@ set backupdir=~/.vimbackups,.
 " Sets folding for indendented blocks for use with python
 set foldmethod=indent
 set foldlevel=99
-set tw=80           " Set width of text to 80
+set tw=72           " Set width of text to 80
 set hidden          " allow hidden buffers
+
+" Set up tex concealing
+set cole=2
+let g:tex_conceal="adgm"
 
 
 "===================================================================
@@ -182,7 +187,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  autocmd FileType text setlocal textwidth=72
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler

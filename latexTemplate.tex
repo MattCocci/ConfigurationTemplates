@@ -4,9 +4,10 @@
 \title{Title}
 \date{\today}
 
-%% Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatting & Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{fullpage}
+%\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry} % most detailed page formatting control
+\usepackage{fullpage} % Simpler than using the geometry package; std effect
 \usepackage{setspace}
 %\onehalfspacing
 \usepackage{microtype}
@@ -14,6 +15,7 @@
 
 %% Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\usepackage{fancyhdr} 
 %\pagestyle{fancy} 
 %\lhead{}
 %\rhead{}
@@ -121,14 +123,17 @@
     %---For including Matlab code from .m file with colors,
     %---line numbering, etc. 
 
+%% Bibliographies %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%\usepackage{natbib} 
+    %---For bibliographies
+%\setlength{\bibsep}{3pt} % Set how far apart bibentries are
 
 %% Misc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \usepackage{enumitem} 
     %---Has to do with enumeration	
 \usepackage{appendix}
-%\usepackage{natbib} 
-    %---For bibliographies
 \usepackage{pdfpages}
     %---For including whole pdf pages as a page in doc
 
@@ -170,11 +175,18 @@
 
     %% BIBLIOGRAPHIES %%
 
-        \cite{LabelInSourcesFile} 
-        \citep{LabelInSourcesFile} Cites in parens
-        \nocite{LabelInSourceFile} includes in refs w/o specific citation
-        \bibliographystyle{apalike} 
-        \bibliography{sources.bib} where sources.bib is file
+        \cite{LabelInSourcesFile}  %Use in text; cites
+        \citep{LabelInSourcesFile} %Use in text; cites in parens
+
+        \nocite{LabelInSourceFile} % Includes in refs w/o specific citation
+        \bibliographystyle{apalike}  % Or some other style
+
+        % To ditch the ``References'' header
+        \begingroup
+        \renewcommand{\section}[2]{} 
+        \endgroup
+
+        \bibliography{sources} % where sources.bib has all the citation info
 
     %% SPACING %%
 
