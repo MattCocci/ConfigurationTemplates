@@ -14,6 +14,7 @@ vim
     snippets
     Tabular for easy aligning
         Syntastic
+    Yggdroot/indentLine
 
 R
 Octave
