@@ -59,11 +59,6 @@ set visualbell		" No beeping/sound
 set splitbelow		" New splits below current window
 set splitright		" New splits to the right
 set noerrorbells	" No beeping/sound
-set t_Co=256		" Expands the color set and makes gvim and 
-			   " vim look better
-set background=dark
-"let g:solarized_termcolors=256
-colorscheme solarized	" Colorscheme for GVIM
 let mapleader=','	" Makes the leader character , instead of \
 
 
@@ -87,15 +82,11 @@ let g:tex_conceal="adgm"
 "================ OTHER SETTINGS ===================================
 "===================================================================
 
-
-
 " Spellchecking enabled, but not by default
 if version >= 700
 	set spl=en spell
 	set nospell
 endif
-
-
 
 " Sets the default filetypes and formats for gvim and latex-suite
 let g:Tex_DefaultTargetFormat = 'pdf'
@@ -151,10 +142,6 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 set pastetoggle=<F2>
 
 
-" Allow for toggling between color schemes for solarized
-map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
-map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
-
 
 " All for jumping by display lines, not just physical lines
 nnoremap j gj
@@ -162,59 +149,73 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
+" Shorter split navigation 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-"=================================================================
-"=========== OTHER STUFF I DON'T REALLY USE/KNOW =================
-"=================================================================
+"===================================================================
+"================ COLORS AND SOLARIZED =============================
+"===================================================================
+"
+set t_Co=256		" Expands the color set and makes gvim and 
+			   " vim look better
+set background=dark
+"let g:solarized_termcolors=256
+colorscheme solarized	" Colorscheme for GVIM
 
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=72
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-filetype plugin on
+" Allow for toggling between color schemes for solarized
+map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 
 
+"===================================================================
+"================ vim-airline ======================================
+"===================================================================
+
+" Always open airline, even if windows not split
+set laststatus=2
+
+" Set the theme 
+"let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'wombat'
+let g:airline_theme = 'tomorrow'
+
+" With only one tab open, show buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Turn off warnings about trailing whitespace
+let g:airline#extensions#whitespace#enabled = 0
+
+" Change the separators
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+
+" Set up the symbols to use
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  "let g:airline_left_sep = '▶'
+  "let g:airline_right_sep = '◀'
+  let g:airline_left_sep = '»'
+  let g:airline_right_sep = '«'
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.branch = '⎇'
+
+" Shorter names for the mode I'm in
+  let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
