@@ -21,18 +21,38 @@ All of these submodules then show up in the `.gitmodules` file.
 
 ## Getting Started on a New System or Server
 
-To efficiently mirror the setup in this folder on particular systems and
-servers, I use symlinks.
+### Downloading This Repo and All Vim Plugins
 
-For example, I have my system's `.vim/` directory reference the `my.vim/`
-folder in this repo.  That way, when I add plugins on one machine, commit, and
-git pull on another machine, all of the plugins will automatically be synced
-and updated.
+On a new system, I start by first cloning this repo to some local
+directory like `~/Documents/` (though any works, really). 
 
-To set this up (taking the `.vim/` example), I run 
+Then after cloning, I run
+  
+    cd /path/to/repo/ConfigurationTemplates/
+    git submodule update --init
+
+This will then pull download all of the plugins I need from Github.
+
+Once downloaded, if the plugins have been updated on Github with bug
+patches or changes, you can download the latest changes by running
+  
+    git submodule foreach git pull origin master
+
+### Using these Files
+
+To get a new system or server to use these files as my configuration
+files, I use symlinks (rather than copying and pasting).
+
+For example, I have my system's `~/.tmux.conf` simply be a pointer to
+the `~/.tmux.conf` file in this repo.  That way, when I update this file
+on one, commit, and run git pull on another machine, all of the plugins
+will automatically be synced and updated.
+
+To set this up (taking the `.tmux.conf` example), I run 
 
     cd 
-    ln -s /path/to/gitrepo/my.vim .vim
+    ln -s /path/to/gitrepo/.tmux.conf .tmux.conf
 
-Done. Now when vim opens and looks for the `.vim/` directory, it will be
-redirected to this git repo (saved locally somewhere else on my system).
+Done. Now when tmux opens and looks for the `.tmux.conf` directory, it
+will be redirected to this git repo (saved locally somewhere else on my
+system and easily synced/updated with a `git pull`).
