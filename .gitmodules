@@ -1,0 +1,27 @@
+[submodule "my.vim/bundle/nerdtree"]
+	path = my.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "my.vim/bundle/vim-surround"]
+	path = my.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "my.vim/bundle/ack.vim"]
+	path = my.vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
+[submodule "my.vim/bundle/tabular"]
+	path = my.vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "my.vim/bundle/vim-colors-solarized"]
+	path = my.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "my.vim/bundle/nerdcommenter"]
+	path = my.vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "my.vim/bundle/syntastic"]
+	path = my.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "my.vim/bundle/vim-airline"]
+	path = my.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "my.vim/bundle/vim-easymotion"]
+	path = my.vim/bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion
