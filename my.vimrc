@@ -92,7 +92,7 @@ endif
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
-witch easily between relative and absolute line numbering
+" Switch easily between relative and absolute line numbering
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
@@ -100,7 +100,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nnoremap <leader># :call NumberToggle()<cr>
+nnoremap <C-n> :call NumberToggle()<cr>
 
 
 "=================================================================
@@ -169,10 +169,24 @@ colorscheme solarized	" Colorscheme for GVIM
 map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 
+"=======================================================================
+"================ syntastic ============================================
+"=======================================================================
+ 
+" Syntax checking on by default; 'active_filetypes' bc syntastic is
+" active (by defult) for all filetypes. 'passive_filetypes' has html as
+" an example, which turns off syntax checking for html by defualt.
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],         
+  \ 'passive_filetypes': ['html'] } 
 
-"===================================================================
-"================ vim-airline ======================================
-"===================================================================
+" Better :sign interface symbols
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
+"=======================================================================
+"================ vim-airline ==========================================
+"=======================================================================
 
 " Always open airline, even if windows not split
 set laststatus=2
