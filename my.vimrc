@@ -70,8 +70,14 @@ set backupdir=~/.vimbackups,.
 " Sets folding for indendented blocks for use with python
 set foldmethod=indent
 set foldlevel=99
-set tw=72           " Set width of text to 80
 set hidden          " allow hidden buffers
+
+" Set the line width and add a dark line
+set tw=72           " Set width of text to 80
+if (exists('+colorcolumn'))
+  set colorcolumn=80
+  highlight ColorColumn ctermbg=9
+endif
 
 " Set up tex concealing
 set cole=2

@@ -17,7 +17,8 @@ I need to run
     cd ConfigurationTemplates/
     git submodule add http://github.com/user1/some-plugin.git my.vim/bundle/some-plugin
 
-All of these submodules then show up in the `.gitmodules` file.
+Now all of these submodules then show up in the `.gitmodules` file. All
+I need to do is add and commit that along with the new folder.
 
 ## Getting Started on a New System or Server
 
