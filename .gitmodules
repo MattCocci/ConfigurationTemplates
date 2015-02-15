@@ -28,3 +28,6 @@
 [submodule "my.vim/bundle/vim-trailing-whitespace"]
 	path = my.vim/bundle/vim-trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
+[submodule "my.vim/bundle/neocomplcache.vim"]
+	path = my.vim/bundle/neocomplcache.vim
+	url = https://github.com/Shougo/neocomplcache.vim.git

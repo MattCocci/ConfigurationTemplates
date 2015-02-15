@@ -72,8 +72,9 @@ set foldmethod=indent
 set foldlevel=99
 set hidden          " allow hidden buffers
 
-" Set the line width and add a dark line
-set tw=72           " Set width of text to 80
+" Set the line width for gq and add a dark line to mark 80 chars
+set fo=cq           " Don't wrap automatically, except for comments
+set tw=72           " If using gq, rewrap text to 72 chars wide
 if (exists('+colorcolumn'))
   set colorcolumn=80
   highlight ColorColumn ctermbg=9
@@ -175,6 +176,9 @@ colorscheme solarized	" Colorscheme for GVIM
 map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 
+" Highlight all occurrences of the variable under the cursor
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
 "=======================================================================
 "================ syntastic ============================================
 "=======================================================================
@@ -239,3 +243,21 @@ let g:airline#extensions#tabline#right_alt_sep = '|'
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+
+
+"=======================================================================
+"================ neocomplcache ========================================
+"=======================================================================
+
+" Enabling
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+
+" Tab to complete
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Select the first option in the popup bar automatically
+let g:neocomplcache_enable_auto_select = 1
+
+" Omni Completion
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
