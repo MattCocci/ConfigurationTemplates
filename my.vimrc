@@ -263,8 +263,5 @@ let g:neocomplcache_enable_smart_case = 1
 " Tab to complete
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Select the first option in the popup bar automatically
-let g:neocomplcache_enable_auto_select = 1
-
 " Omni Completion
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
