@@ -177,7 +177,14 @@ map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme sol
 map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
 
 " Highlight all occurrences of the variable under the cursor
-autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+function! HighlightUnderCursor()
+  " Only do this for certain filetypes when the cursor is held on a a
+  " word for 750 units of time
+  setl updatetime=750
+  autocmd CursorHold *.py,*.m,*.c,*.R
+    \ exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+endfunction
+autocmd CursorMoved * call HighlightUnderCursor()
 
 "=======================================================================
 "================ syntastic ============================================
