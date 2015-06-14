@@ -253,29 +253,37 @@ let g:airline#extensions#tabline#right_alt_sep = '|'
 
 
 "=======================================================================
-"== neocomplcache, neosnippet, vim =====================================
+"== neocomplcache, neosnippet, jedi-vim ================================
 "=======================================================================
 
-" Tab to complete
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
+" General Neocomplecache settings
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
-imap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" : pumvisible() ? "" : ""
-smap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" :
-let g:neocomplcache_force_overwrite_completefunc = 1
+
+" Tab to complete down in popup menu; k to complete up
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+
+" Use jedi as the autocomplete function for python files
 if !exists('g:neocomplcache_omni_functions')
   let g:neocomplcache_omni_functions = {}
 endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+
+" Don't let jedi auto-select first item by default
+let g:jedi#popup_on_dot = 0
+
+" Call omni function when pattern below matches (pattern 'something.').
+" This will force neocomplcache to call jedi when you see 'np.' 'sympy.'
+" etc in python
 if !exists('g:neocomplcache_force_omni_patterns')
   let g:neocomplcache_force_omni_patterns = {}
 endif
+let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
 let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
-set ofu=syntaxcomplete#Complete
 
-" Omni Completion
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python let b:did_ftplugin = 1
+" So jedi-vim doesn't split the current window and show documentation
+set completeopt=menuone
 
-let g:jedi#popup_on_dot = 0
+""imap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" : pumvisible() ? "" : ""
+""smap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" :
