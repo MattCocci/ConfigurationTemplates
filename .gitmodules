@@ -31,3 +31,9 @@
 [submodule "my.vim/bundle/neocomplcache.vim"]
 	path = my.vim/bundle/neocomplcache.vim
 	url = https://github.com/Shougo/neocomplcache.vim.git
+[submodule "my.vim/bundle/jedi-vim"]
+	path = my.vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "my.vim/bundle/neosnippet"]
+	path = my.vim/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.git

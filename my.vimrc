@@ -1,4 +1,4 @@
-" Matt Cocci's .vimrc file 
+" Matt Cocci's .vimrc file
 
 " To use, copy to
 "     for Unix:  ~/.vimrc
@@ -19,13 +19,13 @@
 "===================================================================
 
 
-set nocompatible	      " Use Vim settings, rather than Vi 
-				 					" settings (much better!). This must 
-				 					" be first, because it changes other 
+set nocompatible	      " Use Vim settings, rather than Vi
+				 					" settings (much better!). This must
+				 					" be first, because it changes other
 				 					" options as a side effect.
-								
+
 syntax on					" Allows syntax highlighting
-filetype plugin on		" allows plugins & indenting to run 
+filetype plugin on		" allows plugins & indenting to run
 set hlsearch
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=500		" keep 50 lines of command line history
@@ -34,15 +34,15 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set wrapscan		" sets the search scan to wrap around the file
-set scrolloff=2		"When the page begins to scroll, keep a buffer 
-			   " beween the cursor and the top or botton of 
+set scrolloff=2		"When the page begins to scroll, keep a buffer
+			   " beween the cursor and the top or botton of
 			   " the page
 
 set shiftwidth=2	"Changes the size of the tab
 set softtabstop=2
 autocmd FileType make setlocal noexpandtab " Don't make tabs spaces if writing a Makefile
-set autoindent 
-filetype indent on 
+set autoindent
+filetype indent on
 set tabstop=2
 set expandtab
 set shiftround
@@ -52,8 +52,8 @@ set number		" Put line numbers
 set linebreak		" Don't break midword when wrapping lines
 set ignorecase		" Ignore case in the search string
 set smartcase		" UNLESS there are capitals in search string
-set noswapfile		" So I'm not bothered by annoying ass swap files 
-			   "  and recovery prompts every time I try to use 
+set noswapfile		" So I'm not bothered by annoying ass swap files
+			   "  and recovery prompts every time I try to use
 			   "  gvim for latex
 set visualbell		" No beeping/sound
 set splitbelow		" New splits below current window
@@ -120,7 +120,7 @@ nnoremap JJJJ <Nop>
 
 " Swap 0 to ^, and vice versa the first character of the line
 nnoremap 0 ^
-nnoremap ^ 0 
+nnoremap ^ 0
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -156,7 +156,7 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-" Shorter split navigation 
+" Shorter split navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -166,7 +166,7 @@ nnoremap <C-l> <C-w>l
 "================ COLORS AND SOLARIZED =============================
 "===================================================================
 "
-set t_Co=256		" Expands the color set and makes gvim and 
+set t_Co=256		" Expands the color set and makes gvim and
 			   " vim look better
 set background=dark
 "let g:solarized_termcolors=256
@@ -189,13 +189,13 @@ autocmd CursorMoved * call HighlightUnderCursor()
 "=======================================================================
 "================ syntastic ============================================
 "=======================================================================
- 
+
 " Syntax checking on by default; 'active_filetypes' bc syntastic is
 " active (by defult) for all filetypes. 'passive_filetypes' has html as
 " an example, which turns off syntax checking for html by defualt.
 let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],         
-  \ 'passive_filetypes': ['html'] } 
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
 
 " Better :sign interface symbols
 let g:syntastic_error_symbol = '✗'
@@ -208,7 +208,7 @@ let g:syntastic_warning_symbol = '!'
 " Always open airline, even if windows not split
 set laststatus=2
 
-" Set the theme 
+" Set the theme
 "let g:airline_theme = 'powerlineish'
 "let g:airline_theme = 'wombat'
 let g:airline_theme = 'tomorrow'
@@ -253,15 +253,29 @@ let g:airline#extensions#tabline#right_alt_sep = '|'
 
 
 "=======================================================================
-"================ neocomplcache ========================================
+"== neocomplcache, neosnippet, vim =====================================
 "=======================================================================
-
-" Enabling
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
 
 " Tab to complete
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+imap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" : pumvisible() ? "" : ""
+smap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" :
+let g:neocomplcache_force_overwrite_completefunc = 1
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+set ofu=syntaxcomplete#Complete
+
 " Omni Completion
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python let b:did_ftplugin = 1
+
+let g:jedi#popup_on_dot = 0
