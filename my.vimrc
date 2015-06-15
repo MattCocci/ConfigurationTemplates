@@ -314,6 +314,11 @@ nnoremap <space>j :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer
 " For searching through yank history
 nnoremap <leader>uy :<C-u>Unite history/yank<CR>
 
-" Map jj to Escape for unite
-imap <buffer> jj <Plug>(unite_insert_leave)
-
+" Map jj to Escape for unite; TAB to select next; wrapped in a function
+" so these mappings are only used when I'm in a unite buffer; otherwise,
+" it will try to put (unite_insert_leave) in the document I'm editing
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  imap <buffer> jj <Plug>(unite_insert_leave)
+  imap <buffer> <TAB> <Plug>(unite_select_next_line)
+endfunction"}}}
