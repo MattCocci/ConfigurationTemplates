@@ -37,3 +37,6 @@
 [submodule "my.vim/bundle/neosnippet"]
 	path = my.vim/bundle/neosnippet
 	url = https://github.com/Shougo/neosnippet.git
+[submodule "my.vim/bundle/unite"]
+	path = my.vim/bundle/unite
+	url = https://github.com/Shougo/unite.vim.git

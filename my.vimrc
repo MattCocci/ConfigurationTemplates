@@ -59,8 +59,9 @@ set visualbell		" No beeping/sound
 set splitbelow		" New splits below current window
 set splitright		" New splits to the right
 set noerrorbells	" No beeping/sound
-let mapleader=','	" Makes the leader character , instead of \
 
+" Makes the leader character , instead of \
+let mapleader=','
 
 " Save all backup files with ~ suffix to a central file that's
 "   out of view, but there just in case
@@ -114,6 +115,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 "=========== REMAPS ==============================================
 "=================================================================
 
+
 "Remap jj to escape insert mode
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
@@ -125,19 +127,15 @@ nnoremap ^ 0
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-
-"<Ctrl-l> Redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " This allows for easier copying to the clipboard by hitting \y
    " while \yy will yank an entire line
 noremap <leader>y "+y
 noremap <leader>yy "+Y
-
 
 " This allows for easier pasting from the clipboard by hitting \p
    " also preserves indentation
@@ -147,7 +145,6 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " this way to switch to past mode so things don't get autoindented
 " and screwed up
 set pastetoggle=<F2>
-
 
 
 " All for jumping by display lines, not just physical lines
@@ -161,6 +158,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Keep codeblocks highlighted when indenting and dedenting
+"vnoremap > >gv
+"vnoremap < <gv
 
 "===================================================================
 "================ COLORS AND SOLARIZED =============================
@@ -287,3 +288,32 @@ set completeopt=menuone
 
 ""imap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" : pumvisible() ? "" : ""
 ""smap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" :
+
+
+"=======================================================================
+"== unite.vim ==========================================================
+"=======================================================================
+
+" Enable yank history and fuzzy matching
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" Browse files in current wording directory (non-recursive), with
+" settings:
+" - Start in insert mode, so typing further refines the candidate list
+" - Display right in the same window rather than splitting
+" - Show previews of the code you are selecting
+nnoremap <space>F :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file<CR>
+
+" Same as above, but recursive
+nnoremap <space>f :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file_rec<CR>
+
+" For searching through buffers
+nnoremap <space>j :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer<CR>
+
+" For searching through yank history
+nnoremap <leader>uy :<C-u>Unite history/yank<CR>
+
+" Map jj to Escape for unite
+imap <buffer> jj <Plug>(unite_insert_leave)
+
