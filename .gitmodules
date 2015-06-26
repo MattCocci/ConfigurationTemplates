@@ -40,3 +40,6 @@
 [submodule "my.vim/bundle/unite"]
 	path = my.vim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "my.vim/bundle/julia-vim"]
+	path = my.vim/bundle/julia-vim
+	url = https://github.com/JuliaLang/julia-vim.git

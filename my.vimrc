@@ -322,3 +322,17 @@ function! s:unite_my_settings()"{{{
   imap <buffer> jj <Plug>(unite_insert_leave)
   imap <buffer> <TAB> <Plug>(unite_select_next_line)
 endfunction"}}}
+
+
+
+"=======================================================================
+"================ Julia-Vim ============================================
+"=======================================================================
+
+
+" Ctrl+t to set a latex name to unicode character
+inoremap <C-t> <C-X><C-O>
+
+" Turn off suggestions so it doesn't interfere with neocomplcache
+let g:latex_to_unicode_suggestions = 0
+

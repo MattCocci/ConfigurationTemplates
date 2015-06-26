@@ -58,3 +58,4 @@ Done. Now when tmux opens and looks for the `.tmux.conf` directory, it
 will be redirected to this git repo (saved locally somewhere else on my
 system and easily synced/updated with a `git pull`).
 
+
