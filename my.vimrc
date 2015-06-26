@@ -336,3 +336,5 @@ inoremap <C-t> <C-X><C-O>
 " Turn off suggestions so it doesn't interfere with neocomplcache
 let g:latex_to_unicode_suggestions = 0
 
+" Toggling latex to unicode on and off for any arbitrary file type
+noremap <expr> <leader>t LaTeXtoUnicode#Toggle()
