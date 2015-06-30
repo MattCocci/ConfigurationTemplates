@@ -1,0 +1,20 @@
+/*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+/*Limit max width of cells and center*/
+div.cell{
+  max-width: 105ex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Serif font*/
+div.text_cell_render {
+  font-family: "Charis SIL", serif;
+  ...
+}
