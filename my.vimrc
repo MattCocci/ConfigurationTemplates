@@ -202,6 +202,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 
+" Ignore annoying latex errror about @ in macro names that I get because
+" of the right-justification of numbers in matrices
+let g:syntastic_quiet_messages = { "regex": "Do not use @ in LaTeX macro names"}
+
 "=======================================================================
 "================ vim-airline ==========================================
 "=======================================================================

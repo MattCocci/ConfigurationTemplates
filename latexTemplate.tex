@@ -19,29 +19,29 @@
 %\usepackage{pdflscape}
     %   Allows landscape pages
 %\usepackage{layout}
-    %   Allows plotting of picture of formatting 
+    %   Allows plotting of picture of formatting
 
 
 
 %% Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\usepackage{fancyhdr} 
-%\pagestyle{fancy} 
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
 %\lhead{}
 %\rhead{}
 %\chead{}
-%\setlength{\headheight}{15.2pt} 
+%\setlength{\headheight}{15.2pt}
     %   Make the header bigger to avoid overlap
 
 %\fancyhf{}
     %   Erase header settings
 
-%\renewcommand{\headrulewidth}{0.3pt} 
+%\renewcommand{\headrulewidth}{0.3pt}
     %   Width of the line
 
-%\setlength{\headsep}{0.2in}    
+%\setlength{\headsep}{0.2in}
     %   Distance from line to text
-            
+
 
 %% Mathematics Related %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -83,33 +83,50 @@
 %% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{graphicx}
-\usepackage{subfigure} 
+\usepackage{subfigure}
     %   For plotting multiple figures at once
 %\graphicspath{ {Directory/} }
     %   Set a directory for where to look for figures
 
 
 %% Hyperlinks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{hyperref} 
-\hypersetup{	
-    colorlinks,		
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks,
         %   This colors the links themselves, not boxes
-    citecolor=black,	
+    citecolor=black,
         %   Everything here and below changes link colors
     filecolor=black,
     linkcolor=black,
     urlcolor=black
 }
 
-%% Including Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% Colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{verbatim} 
-    %   For including verbatim code from files, no colors
-
-\usepackage{listings}
 \usepackage{color}
-\definecolor{mygreen}{RGB}{28,172,0}
-\definecolor{mylilas}{RGB}{170,55,241}
+\definecolor{codegreen}{RGB}{28,172,0}
+\definecolor{codelilas}{RGB}{170,55,241}
+
+
+%% Including Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{verbatim}
+    %   For including verbatim code from files, no colors
+\usepackage{listings}
+    %   For including code snippets written directly in this doc
+
+\lstdefinestyle{bash}{%
+  language=bash,%
+  basicstyle=\ttfamily,%
+  showstringspaces=false,%
+  commentstyle=\color{gray},%
+  keywordstyle=\color{blue},%
+  xleftmargin=0.25in,%
+  xrightmargin=0.25in
+}
+
+\definecolor{codegreen}{RGB}{28,172,0}
+\definecolor{codelilas}{RGB}{170,55,241}
 \newcommand{\matlabcode}[1]{%
     \lstset{language=Matlab,%
         basicstyle=\footnotesize,%
@@ -118,15 +135,15 @@
         keywordstyle=\color{blue},%
         morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},%
         identifierstyle=\color{black},%
-        stringstyle=\color{mylilas},%
-        commentstyle=\color{mygreen},%
+        stringstyle=\color{codelilas},%
+        commentstyle=\color{codegreen},%
         showstringspaces=false,%
-            %   Without this there will be a symbol in 
+            %   Without this there will be a symbol in
             %   the places where there is a space
         numbers=left,%
-        numberstyle={\tiny \color{black}},% 
+        numberstyle={\tiny \color{black}},%
             %   Size of the numbers
-        numbersep=9pt,% 
+        numbersep=9pt,%
             %   Defines how far the numbers are from the text
         emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{red},%
             %   Some words to emphasise
@@ -134,26 +151,26 @@
     \lstinputlisting{#1}
 }
     %   For including Matlab code from .m file with colors,
-    %   line numbering, etc. 
+    %   line numbering, etc.
 
-%% Bibliographies %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% Bibliographies %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\usepackage{natbib} 
+%\usepackage{natbib}
     %---For bibliographies
 %\setlength{\bibsep}{3pt} % Set how far apart bibentries are
 
-%% Misc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% Misc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{enumitem} 
-    %   Has to do with enumeration	
+\usepackage{enumitem}
+    %   Has to do with enumeration
 \usepackage{appendix}
-%\usepackage{natbib} 
+%\usepackage{natbib}
     %   For bibliographies
 \usepackage{pdfpages}
     %   For including whole pdf pages as a page in doc
 
 
-%% User Defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% User Defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\newcommand{\nameofcmd}{Text to display}
 \newcommand*{\Chi}{\mbox{\large$\chi$}} %big chi
@@ -161,15 +178,15 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 \maketitle
 
-%\tableofcontents 
+%\tableofcontents
 
 
 
@@ -184,14 +201,14 @@
 \end{document}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% SAMPLE CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %% VIEW LAYOUT %%
-    
+
         \layout
 
     %% LANDSCAPE PAGE %%
@@ -209,7 +226,7 @@
 
         % To ditch the ``References'' header
         \begingroup
-        \renewcommand{\section}[2]{} 
+        \renewcommand{\section}[2]{}
         \endgroup
 
         \bibliography{sources} % where sources.bib has all the citation info
@@ -219,6 +236,13 @@
         \vspace{1in}
         \hspace{1in}
 
+    %% URLS, EMAIL, AND LOCAL FILES %%
+
+      \url{url}
+      \href{url}{name}
+      \href{mailto:mcocci@raidenlovessusie.com}{name}
+      \href{run:/path/to/file.pdf}{name}
+
 
     %% INCLUDING PDF PAGE %%
 
@@ -227,13 +251,19 @@
 
     %% INCLUDING CODE %%
 
-        \verbatiminput{file.ext}    
+        %\verbatiminput{file.ext}
             %   Includes verbatim text from the file
-        \texttt{text}	  
+
+        \texttt{text}
             %   Renders text in courier, or code-like, font
 
-        \matlabcode{file.m}	  
+        \matlabcode{file.m}
             %   Includes Matlab code with colors and line numbers
+
+        \lstset{style=bash}
+        \begin{lstlisting}
+        \end{lstlisting}
+            % Inline code rendering
 
 
     %% INCLUDING FIGURES %%
@@ -256,16 +286,6 @@
                \includegraphics[trim={1cm, 1cm, 1cm, 1cm}, clip]{file.pdf}
             \end{figure}
 
+        % Side by Side figures: Use the tabular environment
 
-        % Side by Side figures
-            \begin{figure}[h!]
-                \centering
-                \mbox{\subfigure{
-                    \includegraphics[scale=1]{file1.pdf}
-                }\quad\subfigure{
-                    \includegraphics[scale=1]{file2.pdf} 
-                }
-                }
-            \end{figure}
-    
 
