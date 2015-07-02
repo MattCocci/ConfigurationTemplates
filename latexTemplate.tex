@@ -78,6 +78,7 @@
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 %\usepackage{blindtext}
+\usepackage{courier}
 
 
 %% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,7 +118,7 @@
 
 \lstdefinestyle{bash}{%
   language=bash,%
-  basicstyle=\ttfamily,%
+  basicstyle=\footnotesize\ttfamily,%
   showstringspaces=false,%
   commentstyle=\color{gray},%
   keywordstyle=\color{blue},%
@@ -125,29 +126,30 @@
   xrightmargin=0.25in
 }
 
-\definecolor{codegreen}{RGB}{28,172,0}
-\definecolor{codelilas}{RGB}{170,55,241}
+\lstdefinestyle{matlab}{%
+  language=Matlab,%
+  basicstyle=\footnotesize\ttfamily,%
+  breaklines=true,%
+  morekeywords={matlab2tikz},%
+  keywordstyle=\color{blue},%
+  morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},%
+  identifierstyle=\color{black},%
+  stringstyle=\color{codelilas},%
+  commentstyle=\color{codegreen},%
+  showstringspaces=false,%
+    %   Without this there will be a symbol in
+    %   the places where there is a space
+  numbers=left,%
+  numberstyle={\tiny \color{black}},%
+    %   Size of the numbers
+  numbersep=9pt,%
+    %   Defines how far the numbers are from the text
+  emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{red},%
+    %   Some words to emphasise
+}
+
 \newcommand{\matlabcode}[1]{%
-    \lstset{language=Matlab,%
-        basicstyle=\footnotesize,%
-        breaklines=true,%
-        morekeywords={matlab2tikz},%
-        keywordstyle=\color{blue},%
-        morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},%
-        identifierstyle=\color{black},%
-        stringstyle=\color{codelilas},%
-        commentstyle=\color{codegreen},%
-        showstringspaces=false,%
-            %   Without this there will be a symbol in
-            %   the places where there is a space
-        numbers=left,%
-        numberstyle={\tiny \color{black}},%
-            %   Size of the numbers
-        numbersep=9pt,%
-            %   Defines how far the numbers are from the text
-        emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{red},%
-            %   Some words to emphasise
-    }%
+    \lstset{style=matlab}%
     \lstinputlisting{#1}
 }
     %   For including Matlab code from .m file with colors,
