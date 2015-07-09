@@ -1,0 +1,101 @@
+// Rough History of Events 
+// -----------------------
+// King David -> David Lucca (aka david1) -> david2 -> david3
+//
+// And now:
+//
+//      _             _     _   _  _   
+//     | |           (_)   | | | || |  
+//   __| | __ ___   ___  __| | | || |_ 
+//  / _  |/ _' \ \ / / |/ _' | |__   _|
+// | (_| | (_| |\ V /| | (_| |    | |  
+//  \__,_|\__,_| \_/ |_|\__,_|    |_|
+//
+//
+// -- A color scheme by Matthew David Cocci 6/12/2015
+
+#include s2color
+// Color settings
+color background        white
+color box               white   
+color textbox           white
+color plotregion_line   none
+
+color p               "100 191 255"
+color p1              "100 191 255"
+color p2              "255 150 100"
+color p3              "125 225 125"
+color p4              "250 100 250"
+color histogram       "100 191 255"
+color histogram_line  white
+intensity histogram   95
+intensity bar         95
+
+color text 	          "86 74 85"
+color heading	        "86 74 85"
+color subheading      "108 96 107"
+color axis_title      "86 74 85"
+color tick_label      "108 96 107"
+color tick_biglabel   "108 96 107"
+color key_label       "86 74 85"
+
+color grid         	    "175 175 175"
+color major_grid   	    "175 175 175"
+color minor_grid   	    "175 175 175"
+color tick              none
+color axisline          none
+
+yesno draw_major_vgrid  yes
+yesno draw_major_hgrid  yes
+
+gsize heading medlarge
+gsize subheading medium 
+gsize axis_title medsmall 
+gsize label medium
+gsize small_label small
+gsize key_label small
+gsize note small
+gsize label_gap           zero
+gsize axis_space          zero
+gsize axis_title_gap      small
+gsize tickgap         half_tiny
+gsize notickgap       tiny
+gsize tick_label      small
+gsize tick_biglabel   medsmall
+gsize minortick_label vsmall
+
+linewidth histogram vvthin
+linewidth bar vvthin
+
+// The Line Styles
+linewidth p1 medthick
+linewidth p2 medthick
+linewidth p3 medthick
+linewidth p4 medthick
+
+linepattern p1 solid
+linepattern p2 solid
+linepattern p3 solid
+linepattern p4 solid
+
+linepattern grid        solid
+linepattern major_grid  solid
+linepattern minor_grid  solid
+linewidth major_grid    vvthin
+linewidth minor_grid    vvthin
+
+symbolsize small
+symbolsize p small
+
+// Legend Info
+clockdir legend_position  7
+gsize legend_key_gap      half_tiny
+gsize legend_row_gap      large
+linestyle legend          none
+numstyle legend_rows      1
+gsize legend_key_xsize    small
+
+// Axes ticks and spacing
+tickposition axis_tick    inside
+anglestyle vertical_tick  horizontal
+
