@@ -114,14 +114,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias dropbox='cd ~/Dropbox'
 
-# Okay, so tmux wants TERM="screen-256color",
-    # which is what is in the .tmux.conf file too.
-    # BUT, if you set this straight away, 
-    # vim gets messed up with the encoding and
-    # the characters.
-    # SO, this sets the terminal colors correctly
-    # before you open tmux
-alias tmux='export TERM="screen-256color"; tmux'
+# TMUX wants TERM="screen-256color" so use that if in tmux
+export TERM="xterm-256color"
+[ -n "$TMUX" ] && export TERM=screen-256color
+alias tmux="tmux -2"
 
 # Better log viewing in Git, from Henry
 alias githist='git log --graph --all --full-history --color --format=oneline --branches --abbrev-commit'
@@ -131,3 +127,4 @@ alias lss='ls | less'
 
 # Turn control the eff off
 stty -ixon
+

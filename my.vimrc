@@ -166,16 +166,9 @@ nnoremap <C-l> <C-w>l
 "===================================================================
 "================ COLORS AND SOLARIZED =============================
 "===================================================================
-"
-set t_Co=256		" Expands the color set and makes gvim and
-			   " vim look better
-set background=dark
-"let g:solarized_termcolors=256
-colorscheme solarized	" Colorscheme for GVIM
 
-" Allow for toggling between color schemes for solarized
-map <F9> :set background=light<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
-map <F6> :set background=dark<CR>:let solarized_termtrans=0<CR>:colorscheme solarized<CR>
+set background=dark
+colorscheme solarized	" Colorscheme for GVIM
 
 " Highlight all occurrences of the variable under the cursor
 function! HighlightUnderCursor()
@@ -342,3 +335,4 @@ let g:latex_to_unicode_suggestions = 0
 
 " Toggling latex to unicode on and off for any arbitrary file type
 noremap <expr> <leader>t LaTeXtoUnicode#Toggle()
+
