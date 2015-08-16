@@ -10,8 +10,8 @@
 "================ PATHOGEN =========================================
 "===================================================================
 
-" execute pathogen#infect()
-" execute pathogen#helptags()
+execute pathogen#infect()
+execute pathogen#helptags()
 
 
 "===================================================================
@@ -48,7 +48,7 @@ set expandtab
 set shiftround
 set mouse=a		" Enable the mouse
 set number		" Put line numbers
-"set nowrap		" Don't wrap lines
+set nowrap		" Don't wrap lines
 set linebreak		" Don't break midword when wrapping lines
 set ignorecase		" Ignore case in the search string
 set smartcase		" UNLESS there are capitals in search string
