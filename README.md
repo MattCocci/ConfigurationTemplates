@@ -45,7 +45,7 @@ To get a new system or server to use these files as my configuration
 files, I use symlinks (rather than copying and pasting).
 
 For example, I have my system's `~/.tmux.conf` simply be a pointer to
-the `~/.tmux.conf` file in this repo.  That way, when I update this file
+the `.tmux.conf` file in this repo.  That way, when I update this file
 on one, commit, and run git pull on another machine, all of the plugins
 will automatically be synced and updated.
 
