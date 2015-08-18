@@ -260,7 +260,8 @@ let g:neocomplcache_enable_smart_case = 1
 
 " Tab to complete down in popup menu; k to complete up
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> k pumvisible() ? "\<C-P>" : "k"
+inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
 " Use jedi as the autocomplete function for python files
 if !exists('g:neocomplcache_omni_functions')
