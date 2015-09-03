@@ -7,8 +7,7 @@
 #  | |__| / ____ \  /   _| |_| |__| |  | |
 #  |_____/_/    \_\/   |_____|_____/   |_|
 #
-#
-# The function prompt_git is taken from:
+# # The function prompt_git is taken from:
 #
 #   http://marcusolovsson.com/my-command-prompt/
 #
@@ -80,5 +79,5 @@ build_prompt() {
 }
 
 # Prompt, with clean line above
-PROMPT='
-%{%f%b%k%}$(build_prompt) %f%k» '
+PROMPT='%{
+%{%f%b%k%}$(build_prompt) %f%k%}» '
