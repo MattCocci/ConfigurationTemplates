@@ -43,3 +43,6 @@
 [submodule "my.vim/bundle/julia-vim"]
 	path = my.vim/bundle/julia-vim
 	url = https://github.com/JuliaLang/julia-vim.git
+[submodule "my.vim/bundle/vim-expand-region"]
+	path = my.vim/bundle/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region.git
