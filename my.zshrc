@@ -97,6 +97,20 @@ alias tmux="tmux -2"
 # Better log viewing in Git, from Henry
 alias githist='git log --graph --all --full-history --color --format=oneline --branches --abbrev-commit'
 
+# For displaying the files tracked by git
+function gittree {
+  local branch
+  if [ -z $1 ]
+  then
+    branch="master"
+  else
+    branch="$1"
+  fi
+  printf "BRANCH: $branch\n\n"
+  git ls-tree -r $branch --name-only
+  printf "\nBRANCH: $branch\n"
+}
+
 # Easier scrolling for very large directories
 alias lss='ls | less'
 
