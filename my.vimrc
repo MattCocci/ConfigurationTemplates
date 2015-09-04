@@ -73,9 +73,16 @@ set foldmethod=indent
 set foldlevel=99
 set hidden          " allow hidden buffers
 
-" Set the line width for gq and add a dark line to mark 80 chars
-set fo=cq           " Don't wrap automatically, except for comments
-set tw=72           " If using gq, rewrap text to 72 chars wide
+
+" Most of the time, don't wrap text automatically, except for comments;
+" if tex file, do wrap automatically
+set fo=cq
+au BufRead,BufNewFile *.tex setlocal fo=cqt
+
+" If using gq, rewrap text to 72 chars wide
+set tw=72
+
+" Add a dark vertical line to mark 80 chars
 if (exists('+colorcolumn'))
   set colorcolumn=80
   highlight ColorColumn ctermbg=9
