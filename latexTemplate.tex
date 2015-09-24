@@ -194,9 +194,12 @@
 \makeatother
 
 % My additions for math shorthand
+\newcommand{\ra}{\rightarrow}
 \newcommand{\limn}{\lim_{n\rightarrow\infty}}
+\newcommand{\F}{\mathscr{F}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Rk}{\mathbb{R}^n}
 \newcommand{\Rnn}{\mathbb{R}^{n\times n}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Cn}{\mathbb{C}^n}
@@ -205,9 +208,38 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\diag}{\text{diag}}
 \newcommand{\ch}{\text{ch}}
+\newcommand{\dom}{\text{dom}}
+\newcommand{\Lg}{\mathscr{L}}
+\DeclareMathOperator*{\argmin}{arg\;min}
+\DeclareMathOperator*{\argmax}{arg\;max}
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Redefine real and imaginary from fraktur to plain text
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Var}{\operatorname{Var}}
+
+% Redefine real and imaginary from fraktur to plain text
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+% Shorter sums: ``Sum from X to Y''
+% - sumXY  is equivalent to \sum^Y_{X=1}
+% - sumXYz is equivalent to \sum^Y_{X=0}
+\newcommand{\sumnN}{\sum^N_{n=1}}
 \newcommand{\sumin}{\sum^n_{i=1}}
 \newcommand{\sumkn}{\sum^n_{k=1}}
 \newcommand{\sumtT}{\sum^T_{t=1}}
+\newcommand{\sumninf}{\sum^\infty_{n=1}}
+\newcommand{\sumtinf}{\sum^\infty_{t=1}}
+\newcommand{\sumnNz}{\sum^N_{n=0}}
+\newcommand{\suminz}{\sum^n_{i=0}}
+\newcommand{\sumknz}{\sum^n_{k=0}}
+\newcommand{\sumtTz}{\sum^T_{t=0}}
+\newcommand{\sumninfz}{\sum^\infty_{n=1}}
+\newcommand{\sumtinfz}{\sum^\infty_{t=0}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
