@@ -169,6 +169,10 @@ nnoremap <C-l> <C-w>l
 " Keep codeblocks highlighted when indenting and dedenting
 "vnoremap > >gv
 "vnoremap < <gv
+"
+" Redraw scren
+noremap <leader>r :redraw!<CR>
+
 
 "===================================================================
 "================ COLORS AND SOLARIZED =============================
