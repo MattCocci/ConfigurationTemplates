@@ -24,7 +24,7 @@ ZSH_THEME="david4"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+ DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/mcocci/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +94,7 @@ export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color
 alias tmux="tmux -2"
 
+
 # Better log viewing in Git, from Henry
 alias githist='git log --graph --all --full-history --color --format=oneline --branches --abbrev-commit'
 
@@ -115,3 +116,6 @@ function gittree {
 alias lss='ls | less'
 
 eval `dircolors ~/.dircolors`
+
+# added by Anaconda2 2.4.1 installer
+export PATH="/home/mcocci/anaconda2/bin:$PATH"
