@@ -60,8 +60,8 @@ set splitbelow		" New splits below current window
 set splitright		" New splits to the right
 set noerrorbells	" No beeping/sound
 
-" Makes the leader character , instead of \
-let mapleader=','
+" Makes the leader character to space instead of \
+let mapleader='\<Space>'
 
 " Save all backup files with ~ suffix to a central file that's
 "   out of view, but there just in case
@@ -127,6 +127,9 @@ nnoremap <C-n> :call NumberToggle()<cr>
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
 
+" Quicker saving of a file
+nnoremap <Leader>w :w<CR>
+
 " Swap 0 to ^, and vice versa the first character of the line
 nnoremap 0 ^
 nnoremap ^ 0
@@ -141,12 +144,12 @@ inoremap <C-U> <C-G>u<C-U>
 
 " This allows for easier copying to the clipboard by hitting \y
    " while \yy will yank an entire line
-noremap <leader>y "+y
-noremap <leader>yy "+Y
+noremap <Leader>y "+y
+noremap <Leader>yy "+Y
 
 " This allows for easier pasting from the clipboard by hitting \p
    " also preserves indentation
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+noremap <Leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " But because pasting can get weird with autoindenting, you add
 " this way to switch to past mode so things don't get autoindented
@@ -169,7 +172,7 @@ nnoremap <C-l> <C-w>l
 " Keep codeblocks highlighted when indenting and dedenting
 "vnoremap > >gv
 "vnoremap < <gv
-"
+
 " Redraw scren
 noremap <leader>r :redraw!<CR>
 
@@ -312,16 +315,16 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " - Start in insert mode, so typing further refines the candidate list
 " - Display right in the same window rather than splitting
 " - Show previews of the code you are selecting
-nnoremap <space>F :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file<CR>
+nnoremap <space>f :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file<CR>
 
 " Same as above, but recursive
-nnoremap <space>f :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file_rec<CR>
+nnoremap <space>F :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file_rec<CR>
 
 " For searching through buffers
-nnoremap <space>j :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer<CR>
+nnoremap <space>b :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer<CR>
 
 " For searching through yank history
-nnoremap <leader>uy :<C-u>Unite history/yank<CR>
+nnoremap <space>uy :<C-u>Unite history/yank<CR>
 
 " Map jj to Escape for unite; TAB to select next; wrapped in a function
 " so these mappings are only used when I'm in a unite buffer; otherwise,
