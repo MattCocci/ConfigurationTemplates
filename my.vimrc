@@ -61,7 +61,7 @@ set splitright		" New splits to the right
 set noerrorbells	" No beeping/sound
 
 " Makes the leader character to space instead of \
-let mapleader='\<Space>'
+let mapleader="\<Space>"
 
 " Save all backup files with ~ suffix to a central file that's
 "   out of view, but there just in case
@@ -349,7 +349,7 @@ inoremap <C-t> <C-X><C-O>
 let g:latex_to_unicode_suggestions = 0
 
 " Toggling latex to unicode on and off for any arbitrary file type
-noremap <expr> <leader>t LaTeXtoUnicode#Toggle()
+noremap <expr> <Leader>t LaTeXtoUnicode#Toggle()
 
 
 "=======================================================================
@@ -357,6 +357,6 @@ noremap <expr> <leader>t LaTeXtoUnicode#Toggle()
 "=======================================================================
 
 " Remap and expand and shrink in visual mode
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+"vmap v "<Plug>(expand_region_expand)"
+"vmap <C-v> <Plug>(expand_region_shrink)
 
