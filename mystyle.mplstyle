@@ -3,7 +3,7 @@
 lines.linewidth  : 2
 lines.linestyle  : -
 lines.color      : 00BFFF
-axes.color_cycle : 00BFFF, FF6400, 32FA00
+axes.prop_cycle  : cycler('color', ['00BFFF', 'FF6400', '32FA00'])
 
 # Polygon shape colors
 patch.edgecolor: white
@@ -25,6 +25,8 @@ axes.linewidth  : 0       # Border width
 axes.labelcolor  : black
 xtick.color      : 362a35
 ytick.color      : 362a35
+xtick.labelsize  : 16
+ytick.labelsize  : 16
 xtick.major.size : 0
 ytick.major.size : 0
 axes.titlesize   : medium
