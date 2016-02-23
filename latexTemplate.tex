@@ -89,6 +89,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
 \usepackage{graphicx}
 \usepackage{subfigure}
     %   For plotting multiple figures at once
@@ -165,6 +166,55 @@
 }
     %   For including Matlab code from .m file with colors,
     %   line numbering, etc.
+
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]
+
+\lstdefinestyle{julia}{%
+    language         = Julia,
+    basicstyle       = \scriptsize\ttfamily,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{codegreen},
+    commentstyle     = \color{codegreen},
+    showstringspaces = false,
+    literate         = %
+      {ρ}{{$\rho$}}1
+      {ℓ}{{$\ell$}}1
+      {∑}{{$\Sigma$}}1
+      {Σ}{{$\Sigma$}}1
+      {√}{{$\sqrt{}$}}1
+      {θ}{{$\theta$}}1
+      {ω}{{$\omega$}}1
+      {ɛ}{{$\varepsilon$}}1
+      {φ}{{$\varphi$}}1
+      {σ²}{{$\sigma^2$}}1
+      {Φ}{{$\Phi$}}1
+      {ϕ}{{$\phi$}}1
+      {Dₑ}{{$D_e$}}1
+      {Σ}{{$\Sigma$}}1
+      {γ}{{$\gamma$}}1
+      {δ}{{$\delta$}}1
+      {τ}{{$\tau$}}1
+      {μ}{{$\mu$}}1
+      {β}{{$\beta$}}1
+      {Λ}{{$\Lambda$}}1
+      {λ}{{$\lambda$}}1
+      {r̃}{{$\tilde{\text{r}}$}}1
+      {α}{{$\alpha$}}1
+      {σ}{{$\sigma$}}1
+      {π}{{$\pi$}}1
+}
+
 
 %% Bibliographies %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -347,6 +397,7 @@
 
 
 % Various probability and statistics commands
+\newcommand{\iid}{\overset{iid}{\sim}}
 \newcommand{\vc}{\operatorname{vec}}
 \newcommand{\Cov}{\operatorname{Cov}}
 \newcommand{\rank}{\operatorname{rank}}
