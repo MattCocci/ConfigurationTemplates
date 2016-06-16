@@ -137,6 +137,13 @@
   xleftmargin=0.25in,%
   xrightmargin=0.25in
 }
+\lstdefinestyle{log}{%
+  basicstyle=\scriptsize\ttfamily,%
+  showstringspaces=false,%
+  xleftmargin=0.25in,%
+  xrightmargin=0.25in
+}
+
 
 \lstdefinestyle{matlab}{%
   language=Matlab,%
@@ -151,12 +158,12 @@
   showstringspaces=false,%
     %   Without this there will be a symbol in
     %   the places where there is a space
-  numbers=left,%
-  numberstyle={\tiny \color{black}},%
+  %numbers=left,%
+  %numberstyle={\tiny \color{black}},%
     %   Size of the numbers
   numbersep=9pt,%
     %   Defines how far the numbers are from the text
-  emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{red},%
+  emph=[1]{for,end,break,switch,case},emphstyle=[1]\color{blue},%
     %   Some words to emphasise
 }
 
@@ -173,7 +180,7 @@
       macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
       using,while},%
    sensitive=true,%
-   alsoother={$},%
+   %alsoother={$},%
    morecomment=[l]\#,%
    morecomment=[n]{\#=}{=\#},%
    morestring=[s]{"}{"},%
@@ -213,6 +220,8 @@
       {α}{{$\alpha$}}1
       {σ}{{$\sigma$}}1
       {π}{{$\pi$}}1
+      {∈}{{$\in$}}1
+      {∞}{{$\infty$}}1
 }
 
 
@@ -482,9 +491,6 @@
 
 \begin{document}
 \maketitle
-
-$\sG$, $\bsx$, $\bsX$, $\calF$, $\R$, $\N$,
-$\bshatb$
 
 
 

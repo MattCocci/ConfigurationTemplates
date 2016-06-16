@@ -321,7 +321,7 @@ nnoremap <space>f :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name
 nnoremap <space>F :<C-u>Unite -start-insert -no-split -auto-preview -buffer-name=files file_rec<CR>
 
 " For searching through buffers
-nnoremap <space>b :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer<CR>
+nnoremap <space>j :<C-u>Unite -start-insert -no-split -buffer-name=buffer buffer<CR>
 
 " For searching through yank history
 nnoremap <space>uy :<C-u>Unite history/yank<CR>

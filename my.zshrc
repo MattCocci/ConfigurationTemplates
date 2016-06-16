@@ -119,3 +119,8 @@ eval `dircolors ~/.dircolors`
 
 # added by Anaconda2 2.4.1 installer
 export PATH="/home/mcocci/anaconda2/bin:$PATH"
+
+# For copying the latex template to the current directory
+function latex-template {
+  cp ~/Documents/ConfigurationTemplates/latexTemplate.tex ./${PWD##*/}.tex
+}
