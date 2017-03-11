@@ -221,8 +221,8 @@ let g:syntastic_quiet_messages = { "regex": "Do not use @ in LaTeX macro names"}
 set laststatus=2
 
 " Set the theme
-"let g:airline_theme = 'powerlineish'
-"let g:airline_theme = 'wombat'
+" let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'wombat'
 let g:airline_theme = 'tomorrow'
 
 " With only one tab open, show buffers
