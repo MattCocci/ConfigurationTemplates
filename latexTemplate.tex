@@ -49,6 +49,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
+\usepackage{mathtools}
 \usepackage{amsthm} %allows for labeling of theorems
 %\numberwithin{equation}{section} % Number equations by section
 \usepackage{bbm} % For bold numbers
@@ -317,6 +318,9 @@
 \newcommand{\bsvarepsilon}{\boldsymbol{\varepsilon}}
 \newcommand{\bsalpha}{\boldsymbol{\alpha}}
 \newcommand{\bsbeta}{\boldsymbol{\beta}}
+\newcommand{\bsOmega}{\boldsymbol{\Omega}}
+\newcommand{\bshatOmega}{\boldsymbol{\hat{\Omega}}}
+\newcommand{\bshatG}{\boldsymbol{\hat{G}}}
 \newcommand{\bsgamma}{\boldsymbol{\gamma}}
 \newcommand{\bslambda}{\boldsymbol{\lambda}}
 
@@ -327,7 +331,9 @@
 \newcommand{\bshattheta}{\boldsymbol{\hat{\theta}}}
 \newcommand{\bshatSigma}{\boldsymbol{\hat{\Sigma}}}
 \newcommand{\bstildebeta}{\boldsymbol{\tilde{\beta}}}
+\newcommand{\bstildetheta}{\boldsymbol{\tilde{\theta}}}
 \newcommand{\bsbarbeta}{\boldsymbol{\overline{\beta}}}
+\newcommand{\bsbarg}{\boldsymbol{\overline{g}}}
 
 % Redefine \bso to be the zero vector
 \renewcommand{\bso}{\boldsymbol{0}}
@@ -401,9 +407,6 @@
 % argmin and argmax
 \DeclareMathOperator*{\argmin}{arg\;min}
 \DeclareMathOperator*{\argmax}{arg\;max}
-\newenvironment{rcases}
-  {\left.\begin{aligned}}
-  {\end{aligned}\right\rbrace}
 
 
 % Various probability and statistics commands
@@ -465,6 +468,7 @@
 \newcommand{\minf}{_{m=1}^\infty}
 \newcommand{\tinf}{_{t=1}^\infty}
 \newcommand{\nN}{_{n=1}^N}
+\newcommand{\tT}{_{t=1}^T}
 \newcommand{\kinfz}{_{k=0}^\infty}
 \newcommand{\ninfz}{_{n=0}^\infty}
 \newcommand{\minfz}{_{m=0}^\infty}

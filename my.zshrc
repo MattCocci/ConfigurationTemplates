@@ -124,3 +124,13 @@ export PATH="/home/mcocci/anaconda2/bin:$PATH"
 function latex-template {
   cp ~/Documents/ConfigurationTemplates/latexTemplate.tex ./${PWD##*/}.tex
 }
+
+# For copying the latex template to the current directory
+function assignment-folder {
+  mkdir Assignment$1/
+  cd Assignment$1
+  mkdir Working/
+  latex-template
+  mv Assignment$1.tex Working/
+  cd Working/
+}

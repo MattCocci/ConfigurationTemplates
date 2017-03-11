@@ -3,7 +3,8 @@
 lines.linewidth  : 2
 lines.linestyle  : -
 lines.color      : 00BFFF
-axes.prop_cycle  : cycler('color', ['00BFFF', 'FF6400', '32FA00'])
+#axes.prop_cycle  : cycler('color', ['00BFFF', 'FF6400', '32FA00'])
+axes.prop_cycle  : cycler('color', ['00BFFF', 'FF6400'])
 
 # Polygon shape colors
 patch.edgecolor: white
