@@ -147,6 +147,9 @@ inoremap <C-U> <C-G>u<C-U>
 noremap <Leader>y "+y
 noremap <Leader>yy "+Y
 
+" Yank the working directory to the clipboard for pasting
+noremap <Leader>ywd :let @+ = expand('%:p:h')<CR>
+
 " This allows for easier pasting from the clipboard by hitting \p
    " also preserves indentation
 noremap <Leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
@@ -189,7 +192,8 @@ function! HighlightUnderCursor()
   " Only do this for certain filetypes when the cursor is held on a a
   " word for 750 units of time
   setl updatetime=750
-  autocmd CursorHold *.py,*.m,*.c,*.R
+  "autocmd CursorHold *.py,*.m,*.c,*.R
+  autocmd CursorHold *.m,*.c,*.R
     \ exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 endfunction
 autocmd CursorMoved * call HighlightUnderCursor()
@@ -281,7 +285,7 @@ inoremap <expr><C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 if !exists('g:neocomplcache_omni_functions')
   let g:neocomplcache_omni_functions = {}
 endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+"let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 
 " Don't let jedi auto-select first item by default
 let g:jedi#popup_on_dot = 0
@@ -334,6 +338,16 @@ function! s:unite_my_settings()"{{{
   imap <buffer> jj <Plug>(unite_insert_leave)
   imap <buffer> <TAB> <Plug>(unite_select_next_line)
 endfunction"}}}
+
+
+"=======================================================================
+"================ Latex-Suite ==========================================
+"=======================================================================
+
+" Get rid of folding, which makes startup really slow for tex files
+let Tex_FoldedSections=""
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
 
 
 
